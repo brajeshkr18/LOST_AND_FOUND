@@ -1,0 +1,1278 @@
+﻿@model Shopping.Model.ClsListQuesTionAnswer
+@{
+    ViewBag.Title = "Quiz";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>Quiz</h2>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <title>Online Quiz</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, user-scalable=0">
+
+
+    <!--[if IE]>
+
+    <![endif]-->
+
+
+    <link rel="shortcut icon" href="https://cdn-main.123contactform.com/images3/favicon.ico">
+<!-- optimized css code -->
+    <!--[if IE]><link rel="stylesheet" type="text/css" href="//cdn-main2.123contactform.com/styles/ie-only.css.minified.css?81ee6ef"  /><![endif]-->
+    <!--[if lte IE 8]><style>.class123-likert_style_li2 {height:56px;}</style><![endif]-->
+    <link href="~/Assets/css/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/form_002.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/normalize.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/main_002.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/printstyle-main.css" media="print">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/printstyle-form.css" media="print">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/calendar.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/jquery.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/css.css">
+    <style>
+        .tdmain {
+            margin: 0 auto;
+            width: 650px;
+            ;
+            background-color: #FFFFFF;
+            border: none;
+        }
+    </style>
+    <style>
+        .bbarrow {
+            /*chosen-container-single .chosen-single div*/
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 18px;
+            height: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/form.css">
+    <style>
+        .errormsg {
+            color: #FF0000 !important;
+        }
+
+        .fielderror {
+            color: #FF0000 !important;
+            font-size: 75%;
+            margin-top: -6px;
+        }
+
+        .customerror {
+            background-color: #FFFFFF !important;
+            border-color: #FF0000 !important;
+        }
+
+        #form-timer {
+            padding-left: 8px;
+            padding-right: 8px;
+            float: right;
+            background-color: #4C4C4C;
+            color: #FFFFFF;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 2px;
+        }
+
+            #form-timer .countdown {
+                float: right;
+            }
+
+            #form-timer span {
+                line-height: 24px;
+                padding-bottom: 3px;
+                padding-top: 3px;
+            }
+
+                #form-timer span.hours-label, #form-timer span.minutes-label {
+                    border-right: #FFFFFF solid 1px;
+                    padding-right: 6px;
+                    margin-right: 5px;
+                }
+
+                #form-timer span.hours-label, #form-timer span.minutes-label, #form-timer span.seconds-label {
+                    font-size: 12px;
+                    padding-left: 2px;
+                }
+
+                #form-timer span.hours-value, #form-timer span.minutes-value, #form-timer span.seconds-value {
+                    font-size: 15px;
+                }
+
+            #form-timer .timer-clock {
+                float: right;
+                padding-right: 7px;
+                font-size: 15px;
+            }
+
+        .focus .row:not(.likert-head) {
+            background: transparent !important;
+            margin-left: -10px !important;
+        }
+
+        .focus .row .class123-label, .focus .row .class123-likert, .focus .row .class123-likertradio-choice {
+            color: #4C4C4C !important;
+        }
+
+        .upload-dropzone.hover {
+            background: transparent !important;
+            color: #4C4C4C !important;
+        }
+
+        .likert-head {
+            background: #f8f8f8;
+        }
+
+        .class123-likertradio-choice {
+            list-style-position: inside;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 95% !important;
+            padding-bottom: 2px;
+        }
+
+        .no-margin-top {
+            margin-top: 0px !important;
+        }
+
+        .validation-error .row {
+            background: #FFDFDF;
+            margin-left: -10px !important;
+        }
+
+        .class123-label, .class123-likert, .class123-likertradio-choice {
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            color: #4C4C4C;
+            top: 5px;
+            word-wrap: break-word;
+            word-break: normal;
+        }
+
+        .headline {
+            color: #4C4C4C;
+        }
+
+            .headline img {
+                height: auto;
+            }
+
+        .full-height .headline img {
+            max-width: 100%;
+        }
+
+        .class123-labelmic {
+            color: #949494;
+        }
+
+        .class123-labelinfo {
+            color: #949494;
+            display: table;
+            margin-top: 5px;
+        }
+
+        class123-labelmic {
+            font-family: "Open Sans", sans-serif;
+            font-size: 70%;
+        }
+
+        .class123-labelinfo {
+            font-family: "Open Sans", sans-serif;
+            font-size: 70%;
+        }
+
+        .class123-radio .class123-labelinfo {
+            margin-top: 0px;
+        }
+
+        /* .label-text { vertical-align:top; word-wrap: break-word; word-break: normal; display:inline-block; max-width:100%; margin-left:-40px; padding-left: 40px;  } */
+
+        .label-text {
+            display: table-cell;
+            vertical-align: top;
+            word-break: normal;
+            word-wrap: break-word;
+        }
+
+        .class123-twocol .label-text, .class123-threecol .label-text, .class123-sidebyside .label-text {
+            max-width: auto;
+        }
+
+        .likert-label .label-text {
+            display: block;
+            position: relative;
+        }
+
+        .rowleft.dontchange {
+            margin-top: 8px !important;
+        }
+
+        .likert-label {
+            padding-top: 2px;
+        }
+
+        .class123-likert_style_li2 class123-likertradio {
+            vertical-align: middle;
+        }
+
+        .class123-likertradio .class123-label {
+            text-align: center !important;
+            margin: 0 auto;
+        }
+
+        .class123-sidebyside {
+            float: left; /* some styles moved to main.modern.css and main.classic.css */
+        }
+
+        #workform .class123-sidebyside {
+            display: table-cell;
+            vertical-align: top;
+            float: left;
+        }
+
+        #mainform123 .class123-sidebyside {
+            display: inline-flex;
+            vertical-align: bottom;
+            float: none;
+            display: -ms-inline-flexbox;
+            display: -webkit-inline-flex;
+        }
+
+        .class123-twocol {
+            display: inline-table;
+            vertical-align: bottom;
+            width: 45%;
+            margin: 0 5px 0 0;
+        }
+
+        .class123-threecol {
+            display: inline-table;
+            vertical-align: bottom;
+            width: 30%;
+            margin: 0 5px 0 0;
+        }
+
+        .currentPageActive.navigationButtons .rowleft {
+            display: none !important;
+        }
+
+        .currentPageActive.navigationButtons .rowright {
+            width: 100% !important;
+        }
+
+        .class123-savereturn {
+            background: none;
+            border: medium none;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .class123-goback {
+            background: none;
+            border: medium none;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #C80042;
+        }
+
+        .class123-pbline {
+            display: none;
+        }
+
+        .class123-pbprev {
+            background: none;
+            border: medium none;
+            text-decoration: underline;
+            cursor: pointer;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .class123_maintable {
+        }
+
+        #mainform123 .class123-pagination {
+            background-color: transparent;
+        }
+
+        #errordiv {
+            margin-top: 0px;
+        }
+
+        .currentPageActive {
+            display: block;
+        }
+
+        .currentPageInactive {
+            display: none;
+        }
+
+        .hideAlternate {
+            display: block;
+            height: 0px;
+            width: 0px;
+            overflow: hidden !important;
+            padding: 0px;
+            margin: 0px;
+            pointer-events: none;
+            position: absolute;
+            left: -2000px;
+            top: 0px;
+        }
+
+        .formdefaultbutcolor {
+            background-color: 4C4C4C;
+        }
+
+        .formnotextButton {
+            width: 150px;
+        }
+
+        .fontbold {
+            font-weight: bold;
+        }
+
+        .fontitalic {
+            font-style: italic;
+        }
+
+        .fontbolditalic {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .requiredspan {
+            font-size: 10px;
+            color: #;
+            margin-left: 3px;
+        }
+
+        .requiredfield.likert-label .label-text:after {
+            content: "\0000a0*";
+            color: #FF0000;
+            font-size: 10px;
+        }
+
+        .requiredfield:not(.likert-label):after {
+            content: " *";
+            color: #FF0000;
+            font-size: 10px;
+            position: absolute;
+            margin-left: 6px;
+            margin-top: 5px;
+            line-height: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/form_fields.css">
+    <style>
+@@media only screen and (max-width:600px){
+			.divonecolumn {float:none; width:100%!important;}
+			.not-preview label, .not-preview li, .not-preview .class123-likert, .not-preview .label-text {
+				font-size:100% !important;
+			}
+		}
+		 .thebuttons .divonecolumn.second { padding:6px; }
+
+
+	.class123-likertradio-choice {
+		margin-top:0px;
+		line-height:100%;
+		color: #4C4C4C;
+	}
+	.pagination-progress-bar { background:#ECECEC; }
+	.input-required + label:after {
+		content:'*';
+		color: #;
+		font-size:10px;
+	}
+	/* --- BTV 30.05.2016: moved a lot of CSS to /styles/form_new.css --- */</style>
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Quiz/form_new_v2.css">
+    <style>
+        .class123-address .input-required {
+            background-image: url("images3/asterix.gif");
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB2aWV3Qm94PSIwIC0yNTYgMTc5MiAxNzkyIiBpZD0ic3ZnMzAzNyIgdmVyc2lvbj0iMS4xIiBpbmtzY2FwZTp2ZXJzaW9uPSIwLjQ4LjMuMSByOTg4NiIgd2lkdGg9IjUiIGhlaWdodD0iNSIgc29kaXBvZGk6ZG9jbmFtZT0iYXN0ZXJpc2tfZm9udF9hd2Vzb21lLnN2ZyIgc3R5bGU9Ig0KICAgIGZpbGw6ICNGRjAwMDA7DQoiPg0KICA8bWV0YWRhdGEgaWQ9Im1ldGFkYXRhMzA0NyI+DQogICAgPHJkZjpSREY+DQogICAgICA8Y2M6V29yayByZGY6YWJvdXQ9IiI+DQogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0Pg0KICAgICAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+DQogICAgICA8L2NjOldvcms+DQogICAgPC9yZGY6UkRGPg0KICA8L21ldGFkYXRhPg0KICA8ZGVmcyBpZD0iZGVmczMwNDUiLz4NCiAgPHNvZGlwb2RpOm5hbWVkdmlldyBwYWdlY29sb3I9IiIgYm9yZGVyY29sb3I9IiIgYm9yZGVyb3BhY2l0eT0iMSIgb2JqZWN0dG9sZXJhbmNlPSIxMCIgZ3JpZHRvbGVyYW5jZT0iMTAiIGd1aWRldG9sZXJhbmNlPSIxMCIgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiIGlua3NjYXBlOndpbmRvdy13aWR0aD0iNjQwIiBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI0ODAiIGlkPSJuYW1lZHZpZXczMDQzIiBzaG93Z3JpZD0iZmFsc2UiIGlua3NjYXBlOnpvb209IjAuMTMxNjk2NDMiIGlua3NjYXBlOmN4PSI4OTYiIGlua3NjYXBlOmN5PSI4OTYiIGlua3NjYXBlOndpbmRvdy14PSIwIiBpbmtzY2FwZTp3aW5kb3cteT0iMjUiIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzMwMzciLz4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsNTMuMTUyNTQyLDEzMDguMjAzNCkiIGlkPSJnMzAzOSI+DQogICAgPHBhdGggZD0ibSAxNDgyLDQ4NiBxIDQ2LC0yNiA1OS41LC03Ny41IFEgMTU1NSwzNTcgMTUyOSwzMTEgTCAxNDY1LDIwMSBRIDE0MzksMTU1IDEzODcuNSwxNDEuNSAxMzM2LDEyOCAxMjkwLDE1NCBMIDEwMjQsMzA3IFYgMCBxIDAsLTUyIC0zOCwtOTAgLTM4LC0zOCAtOTAsLTM4IEggNzY4IHEgLTUyLDAgLTkwLDM4IC0zOCwzOCAtMzgsOTAgViAzMDcgTCAzNzQsMTU0IFEgMzI4LDEyOCAyNzYuNSwxNDEuNSAyMjUsMTU1IDE5OSwyMDEgTCAxMzUsMzExIFEgMTA5LDM1NyAxMjIuNSw0MDguNSAxMzYsNDYwIDE4Miw0ODYgTCA0NDgsNjQwIDE4Miw3OTQgUSAxMzYsODIwIDEyMi41LDg3MS41IDEwOSw5MjMgMTM1LDk2OSBsIDY0LDExMCBxIDI2LDQ2IDc3LjUsNTkuNSBRIDMyOCwxMTUyIDM3NCwxMTI2IEwgNjQwLDk3MyB2IDMwNyBxIDAsNTIgMzgsOTAgMzgsMzggOTAsMzggaCAxMjggcSA1MiwwIDkwLC0zOCAzOCwtMzggMzgsLTkwIFYgOTczIGwgMjY2LDE1MyBxIDQ2LDI2IDk3LjUsMTIuNSA1MS41LC0xMy41IDc3LjUsLTU5LjUgbCA2NCwtMTEwIHEgMjYsLTQ2IDEyLjUsLTk3LjUgUSAxNTI4LDgyMCAxNDgyLDc5NCBMIDEyMTYsNjQwIHoiIGlkPSJwYXRoMzA0MSIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgc3R5bGU9IiIvPg0KICA8L2c+DQo8L3N2Zz4=");
+            background-repeat: no-repeat;
+            background-position: right 5px center;
+            background-size: 5px;
+        }
+    </style>
+    <style>
+        #___plusone_0, #___plusone_1, #___plusone_2, #___plusone_3 {
+            width: 70px !important;
+        }
+    </style>
+    <style>
+        #twitter-widget-0, #twitter-widget-1, #twitter-widget-2, #twitter-widget-3 {
+            width: 90px !important;
+        }
+    </style>
+    <!-- end optimized css code -->
+    <script src="Online%20Quiz_files/secureAnonymousFramework"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="~/Assets/js/Quiz/button.js"></script>
+    <style type="text/css">
+        * html #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link {
+            height: 1% !important;
+        }
+
+        #li_ui_li_gen_1495234762971_0 {
+            position: relative !important;
+            overflow: visible !important;
+            display: block !important;
+        }
+
+            #li_ui_li_gen_1495234762971_0 span {
+                -webkit-box-sizing: content-box !important;
+                -moz-box-sizing: content-box !important;
+                box-sizing: content-box !important;
+            }
+
+            #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link {
+                border: 0 !important;
+                height: 20px !important;
+                text-decoration: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: inline-block !important;
+            }
+
+                #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link:link, #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link:visited, #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link:hover, #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link:active {
+                    border: 0 !important;
+                    text-decoration: none !important;
+                }
+
+                #li_ui_li_gen_1495234762971_0 a#li_ui_li_gen_1495234762971_0-link:after {
+                    content: "." !important;
+                    display: block !important;
+                    clear: both !important;
+                    visibility: hidden !important;
+                    line-height: 0 !important;
+                    height: 0 !important;
+                }
+
+            #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-logo {
+                background-image: url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;
+                background-position: 0px -593px !important;
+                background-repeat: no-repeat !important;
+                background-color: #0077b5 !important;
+                background-size: initial !important;
+                cursor: pointer !important;
+                border: 0 !important;
+                border-right: 1px solid #066094 !important;
+                text-indent: -9999em !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                position: absolute !important;
+                left: 0px !important;
+                top: 0px !important;
+                display: block !important;
+                width: 20px !important;
+                height: 20px !important;
+                float: right !important;
+                border-radius: 2px !important;
+                -moz-border-radius: 2px !important;
+                border-top-right-radius: 2px !important;
+                border-bottom-right-radius: 2px !important;
+                -moz-border-radius-topright: 2px !important;
+                -moz-border-radius-bottomright: 2px !important;
+            }
+
+            #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title {
+                color: #fff !important;
+                cursor: pointer !important;
+                display: block !important;
+                white-space: nowrap !important;
+                float: left !important;
+                margin-left: 1px !important;
+                vertical-align: top !important;
+                overflow: hidden !important;
+                text-align: center !important;
+                height: 18px !important;
+                padding: 0 4px 0 23px !important;
+                border: 1px solid #000 !important;
+                border-top-color: #0077b5 !important;
+                border-right-color: #0077b5 !important;
+                border-bottom-color: #0077b5 !important;
+                border-left-color: #0077b5 !important;
+                text-shadow: 0 -1px #005887 !important;
+                line-height: 20px !important;
+                border-radius: 2px !important;
+                -moz-border-radius: 2px !important;
+                border-top-right-radius: 2px !important;
+                border-bottom-right-radius: 2px !important;
+                -moz-border-radius-topright: 2px !important;
+                -moz-border-radius-bottomright: 2px !important;
+                background-color: #0077b5 !important;
+                background-image: -moz-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;
+            }
+
+            #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title {
+                border: 1px solid #000 !important;
+                border-top-color: #0369a0 !important;
+                border-right-color: #0369a0 !important;
+                border-bottom-color: #0369a0 !important;
+                border-left-color: #0369a0 !important;
+                background-color: #0369a0 !important;
+                background-image: -moz-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;
+            }
+
+            #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title, #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title {
+                color: #fff !important;
+                border: 1px solid #000 !important;
+                border-top-color: #066094 !important;
+                border-right-color: #066094 !important;
+                border-bottom-color: #066094 !important;
+                border-left-color: #066094 !important;
+                background-color: #066094 !important;
+                background-image: -moz-linear-gradient(top, #066094 0%, #066094 100%) !important;
+            }
+
+        .IN-shadowed #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title {
+        }
+
+        .IN-shadowed #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title {
+        }
+
+        .IN-shadowed #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title, .IN-shadowed #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title {
+        }
+
+        #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text, #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+            font-size: 11px !important;
+            font-family: Arial, sans-serif !important;
+            font-weight: bold !important;
+            font-style: normal !important;
+            -webkit-font-smoothing: antialiased !important;
+            display: inline-block !important;
+            background: transparent none !important;
+            vertical-align: top !important;
+            height: 18px !important;
+            line-height: 20px !important;
+            float: none !important;
+        }
+
+            #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text strong {
+                font-weight: bold !important;
+            }
+
+            #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text em {
+                font-style: italic !important;
+            }
+
+        #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title-text, #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+        }
+
+        #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title-text, #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title-text, #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title-text *, #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+        }
+
+        #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title #li_ui_li_gen_1495234762971_0-mark {
+            display: inline-block !important;
+            width: 0px !important;
+            overflow: hidden !important;
+        }
+
+        .success #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title {
+            color: #fff !important;
+            border-top-color: #0077b5 !important;
+            border-right-color: #0077b5 !important;
+            border-bottom-color: #0077b5 !important;
+            border-left-color: #0077b5 !important;
+            background-color: #0077b5 !important;
+            background-image: -moz-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;
+        }
+
+        .success #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text, .success #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+        }
+
+        .IN-shadowed .success #li_ui_li_gen_1495234762971_0 #li_ui_li_gen_1495234762971_0-title {
+        }
+
+        .success #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title {
+            color: #fff !important;
+            border-top-color: #0369a0 !important;
+            border-right-color: #0369a0 !important;
+            border-bottom-color: #0369a0 !important;
+            border-left-color: #0369a0 !important;
+            background-color: #0369a0 !important;
+            background-image: -moz-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;
+        }
+
+        .success #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title-text, .success #li_ui_li_gen_1495234762971_0.hovered #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+        }
+
+        .success #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title, .success #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title {
+            color: #fff !important;
+            border-top-color: #066094 !important;
+            border-right-color: #066094 !important;
+            border-bottom-color: #066094 !important;
+            border-left-color: #066094 !important;
+            background-color: #066094 !important;
+            background-image: -moz-linear-gradient(top, #066094 0%, #066094 100%) !important;
+        }
+
+        .success #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title-text, .success #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title-text, .success #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title-text *, .success #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title-text * {
+            color: #fff !important;
+        }
+
+        .IN-shadowed .success #li_ui_li_gen_1495234762971_0.clicked #li_ui_li_gen_1495234762971_0-title, .IN-shadowed .success #li_ui_li_gen_1495234762971_0.down #li_ui_li_gen_1495234762971_0-title {
+        }
+
+        #li_ui_li_gen_1495234762995_1-container.IN-right {
+            display: inline-block !important;
+            float: left !important;
+            overflow: visible !important;
+            position: relative !important;
+            height: 20px !important;
+            padding-left: 2px !important;
+            line-height: 1px !important;
+            cursor: pointer !important;
+        }
+
+        #li_ui_li_gen_1495234762995_1.IN-right {
+            display: block !important;
+            float: left !important;
+            height: 20px !important;
+            margin-right: 4px !important;
+            padding-right: 4px !important;
+            background-image: url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;
+            background-color: transparent !important;
+            background-repeat: no-repeat !important;
+            background-position: right -447px !important;
+        }
+
+        #li_ui_li_gen_1495234762995_1-inner.IN-right {
+            display: block !important;
+            float: left !important;
+            padding-left: 8px !important;
+            text-align: center !important;
+            background-image: url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;
+            background-color: transparent !important;
+            background-repeat: no-repeat !important;
+            background-position: 0px -426px !important;
+        }
+
+        #li_ui_li_gen_1495234762995_1-content.IN-right {
+            display: inline !important;
+            font-size: 11px !important;
+            color: #4e4e4e !important;
+            font-weight: bold !important;
+            font-family: Arial, sans-serif !important;
+            line-height: 20px !important;
+            padding: 0 5px 0 5px !important;
+        }
+
+        #li_ui_li_gen_1495234762995_1-container.IN-empty {
+            display: none !important;
+        }
+
+        #li_ui_li_gen_1495234762995_1-container.IN-hidden #li_ui_li_gen_1495234762995_1 {
+            display: none !important;
+        }
+    </style>
+    <style type="text/css">
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style>
+</head>
+<body style="background-color:#C8C8C8; ">
+    <div class="form-container big-container not-preview" style="margin:10px auto;width:650px;" id="AutoNumber1">
+        <div class="form-header" style="border-radius:0px;background-color:#4C4C4C">
+            <div id="header-content">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- Form headline begins -->
+                        <div class="optionscontainer headline">
+                            <div id="header-text">
+                                <div class="header-text-container">
+                                    <p><strong><span style="font-size: 18pt;">Online Quiz</span></strong><br>Please answer the Online Quiz below. You will receive 2 points for every correct answer submitted.<br><br>You have only one attempt to take the Online Quiz test. The quiz will take 5 minutes to complete.&nbsp;</p>
+                                    <hr>
+                                </div><div class="clear"></div>
+                            </div>
+
+                        </div>
+                        <!-- Form headline ends -->
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="full-height">
+
+            <div class="tdmain ">
+                <div class="selector-off">
+                    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Online%20Quiz_files/0F7S7QWJ0Ac.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    @foreach (var users in Model.lstclsQuestionAnswer)
+                                    {
+                                        <div id="fieldcontainer2" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                            <div id="row2" class="fieldtype-3-0 row row-fluid currentPage1 currentPageActive">
+                                                <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                                    <label class="class123-label class123-fieldname  fontbold">@users.Question</label>
+                                                </div>
+                                            </div>
+                                            <div id="rowsec2" class="fieldcontainer fieldtype-3-0 rowdown currentPage1 currentPageActive">
+                                                <div class="row rowdownsmall align-left"><input id="errorflagrow2" value="" type="hidden" />
+                                                <div class="control-row"><div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                                             <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                                                 <span class="class123-threecol">
+                                                                                 <input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dog.png" id="id123-control29087093_0" 
+                                                                                        onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dog.png"
+                                                                                         type="radio" /><label for="id123-control29087093_0" class="caption-live top">@users.OptionA
+                                                                                    
+                                                                                     <span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span>
+                                                                                     </span></label><span class="checkboxSeparator full-width"></span> </span>
+
+                                                                                 <span class="class123-threecol">
+                                                                                     <input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dog.png" id="id123-control29087093_0"
+                                                                                            onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dog.png"
+                                                                                            type="radio" /><label for="id123-control29087093_0" class="caption-live top">
+                                                                                         @users.OptionA
+
+                                                                                         <span class="outside"><span class="inside"></span></span><span class="label-text">
+                                                                                             <span class="label-cont"></span>
+                                                                                         </span>
+                                                                                     </label><span class="checkboxSeparator full-width"></span>
+                                                                                 </span>
+
+                                                                                 <span class="class123-threecol">
+                                                                                     <input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dog.png" id="id123-control29087093_0"
+                                                                                            onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dog.png"
+                                                                                            type="radio" /><label for="id123-control29087093_0" class="caption-live top">
+                                                                                         @users.OptionA
+
+                                                                                         <span class="outside"><span class="inside"></span></span><span class="label-text">
+                                                                                             <span class="label-cont"></span>
+                                                                                         </span>
+                                                                                     </label><span class="checkboxSeparator full-width"></span>
+                                                                                 </span>
+                                                                                 <span class="class123-threecol">
+                                                                                     <input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dog.png" id="id123-control29087093_0"
+                                                                                            onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dog.png"
+                                                                                            type="radio" /><label for="id123-control29087093_0" class="caption-live top">
+                                                                                         @users.OptionA
+
+                                                                                         <span class="outside"><span class="inside"></span></span><span class="label-text">
+                                                                                             <span class="label-cont"></span>
+                                                                                         </span>
+                                                                                     </label><span class="checkboxSeparator full-width"></span>
+                                                                                 </span>
+                                                                                 @*<span class="class123-threecol"><input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dolphin.png" id="id123-control29087093_1" onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dolphin.png" type="radio" /><label for="id123-control29087093_1" class="caption-live top"><img src="~/Assets/images/Quiz/dolphin.png" style="max-height: 159px;max-width:159px;" /><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span></span></label><span class="checkboxSeparator full-width"></span> </span>
+                                                                                 <span class="class123-threecol"><input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/chicken.png" id="id123-control29087093_2" onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/chicken.png" type="radio" /><label for="id123-control29087093_2" class="caption-live top"><img src="~/Assets/images/Quiz/chicken.png" style="max-height: 159px;max-width:159px;" /><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span></span></label> </span>*@
+                                                                                 <div class="clearfix"></div>
+                                                                                 <div class="row no-padding-vert"></div>
+                                                                             </div></div></div>
+                                            </div>
+                                        </div>
+                                            </div>
+                                    }
+
+                    <!--[if lte IE 8]>
+
+                    <![endif]-->
+
+
+
+                    <form class="form js-form" action="https://www.123contactform.com/form-2701923/Online-Quiz" id="mainform123" method="post" name="mainform123" enctype="multipart/form-data" novalidate="">
+                        <input name="action" value="verify" type="hidden">
+                        <input name="tmp_referer" value="https://www.123contactform.com/index.php?p=edit_fields&amp;id=2701923&amp;from=firsttime&amp;registered=1290745" type="hidden">
+                        <input name="tmp_form_host" value="https://www.123contactform.com/form-2701923/" type="hidden">
+                        <input size="30" name="viewformr" id="viewformr" value="cfr_1495234762.2672" type="hidden">
+                        <input name="f_autoresponder" id="f_autoresponder" value="0" type="hidden">
+                        <input name="special_autoresponder" id="special_autoresponder" value="" type="hidden">
+                        <input id="language" name="language" value="en" type="hidden"><input id="language-changed" name="languageChanged" value="no" type="hidden"><div class="class123_maintable maintable_centered form-top-aligned form-top-aligned container-normal" style="">
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer1" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                <div id="row1" class="fieldtype-3-0 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087093" for="id123-control29087093_0">Which of the following animals is not a mammal?</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec1" class="fieldcontainer fieldtype-3-0 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left">
+                                        <input id="errorflagrow1" value="" type="hidden"><div class="control-row">
+                                            <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dog.png" id="id123-control29087093_0" onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dog.png" type="radio"><label for="id123-control29087093_0" class="caption-live top"><img src="~/Assets/images/Quiz/dog.png" style="max-height: 159px;max-width:159px;"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span></span></label><span class="checkboxSeparator full-width"></span> </span>
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/dolphin.png" id="id123-control29087093_1" onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/dolphin.png" type="radio"><label for="id123-control29087093_1" class="caption-live top"><img src="~/Assets/images/Quiz/dolphin.png" style="max-height: 159px;max-width:159px;"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span></span></label><span class="checkboxSeparator full-width"></span> </span>
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;vertical-align:middle;" title="http://123contactform.com/images3/new_forms/chicken.png" id="id123-control29087093_2" onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(29087093); ;  " name="control29087093" value="http://123contactform.com/images3/new_forms/chicken.png" type="radio"><label for="id123-control29087093_2" class="caption-live top"><img src="~/Assets/images/Quiz/chicken.png" style="max-height: 159px;max-width:159px;"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont"></span></span></label> </span>
+                                                <div class="clearfix"></div>
+                                                <div class="row no-padding-vert"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer2" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                <div id="row2" class="fieldtype-3-0 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087094" for="id123-control29087094_0">What is the longest river in the world?</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec2" class="fieldcontainer fieldtype-3-0 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left"><input id="errorflagrow2" value="" type="hidden"><div class="control-row"><div class="subitem col-lg-12 col-md-12 col-sm-12"><input style="background:transparent;border:0;float:left;" title="Nile" id="id123-control29087094_0" onclick=" InputActions(this,'row2');" onkeyup=" InputActions(this,'row2');  " onchange="InputRules(29087094); ;  " name="control29087094" checked="checked" value="Nile" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087094_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Nile</span></span></label><span class="checkboxSeparator full-width"></span> <input style="background:transparent;border:0;float:left;" title="Amazon" id="id123-control29087094_1" onclick=" InputActions(this,'row2');" onkeyup=" InputActions(this,'row2');  " onchange="InputRules(29087094); ;  " name="control29087094" value="Amazon" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087094_1"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Amazon</span></span></label><span class="checkboxSeparator full-width"></span> <input style="background:transparent;border:0;float:left;" title="Yangtze" id="id123-control29087094_2" onclick=" InputActions(this,'row2');" onkeyup=" InputActions(this,'row2');  " onchange="InputRules(29087094); ;  " name="control29087094" value="Yangtze" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087094_2"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Yangtze</span></span></label> <div class="row no-padding-vert"></div></div></div></div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer3" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100 focus" style="  ">
+                                <div id="row3" class="fieldtype-2-0 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087095" for="id123-control29087095_0">Which of the following inventions occured in the 17th century?</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec3" class="fieldcontainer fieldtype-2-0 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left">
+                                        <input id="errorflagrow3" value="" type="hidden"><div class="control-row">
+                                            <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                <input id="id123-control29087095_0" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(29087095); ;  " name="control29087095-0" value="yes" class="no-validation-error" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087095_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Telescope‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087095_1" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(29087095); ;  " name="control29087095-1" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087095_1"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Submarine‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087095_2" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(29087095); ;  " name="control29087095-2" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087095_2"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Tin can‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087095_3" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(29087095); ;  " name="control29087095-3" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087095_3"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Matches‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087095_4" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(29087095); ;  " name="control29087095-4" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087095_4"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Bottled beer‎</span></span></label>
+                                                <div class="row no-padding-vert"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer4" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                <div id="row4" class="fieldtype-2-0 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087096" for="id123-control29087096_0">What name is given to the programs ran by a computer, as opposed to the hardware ?</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec4" class="fieldcontainer fieldtype-2-0 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left">
+                                        <input id="errorflagrow4" value="" type="hidden"><div class="control-row">
+                                            <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                <input id="id123-control29087096_0" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row4');" onkeyup=" InputActions(this,'row4');  " onchange="InputRules(29087096); ;  " name="control29087096-0" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087096_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Software‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087096_1" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row4');" onkeyup=" InputActions(this,'row4');  " onchange="InputRules(29087096); ;  " name="control29087096-1" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087096_1"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Floppy-disk‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087096_2" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row4');" onkeyup=" InputActions(this,'row4');  " onchange="InputRules(29087096); ;  " name="control29087096-2" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087096_2"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Mouse‎</span></span></label><span class="checkboxSeparator full-width"></span>
+                                                <input id="id123-control29087096_3" style="background:transparent;border:0;float:left; " onclick=" InputActions(this,'row4');" onkeyup=" InputActions(this,'row4');  " onchange="InputRules(29087096); ;  " name="control29087096-3" value="yes" type="checkbox"><label class="class123-label class123-checkbox" style="opacity: 1;" for="id123-control29087096_3"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Hard-disk‎</span></span></label>
+                                                <div class="row no-padding-vert"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer5" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                <div id="row5" class="fieldtype-3-0 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087097" for="id123-control29087097_0">What food group has the highest level of protein?</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec5" class="fieldcontainer fieldtype-3-0 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left">
+                                        <input id="errorflagrow5" value="" type="hidden"><div class="control-row">
+                                            <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;float:left;" title="Bread" id="id123-control29087097_0" onclick=" InputActions(this,'row5');" onkeyup=" InputActions(this,'row5');  " onchange="InputRules(29087097); ;  " name="control29087097" value="Bread" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087097_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Bread</span></span></label><span class="checkboxSeparator full-width"></span> </span>
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;float:left;" title="Vegetables" id="id123-control29087097_1" onclick=" InputActions(this,'row5');" onkeyup=" InputActions(this,'row5');  " onchange="InputRules(29087097); ;  " name="control29087097" value="Vegetables" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087097_1"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Vegetables</span></span></label><span class="checkboxSeparator full-width"></span> </span>
+                                                <span class="class123-threecol"><input style="background:transparent;border:0;float:left;" title="Meat" id="id123-control29087097_2" onclick=" InputActions(this,'row5');" onkeyup=" InputActions(this,'row5');  " onchange="InputRules(29087097); ;  " name="control29087097" value="Meat" type="radio"><label style=" opacity: 1; " class=" class123-label class123-radio" for="id123-control29087097_2"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Meat</span></span></label> </span>
+                                                <div class="clearfix"></div>
+                                                <div class="row no-padding-vert"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer6" class="fieldcontainer currentPage1 currentPageActive  fieldwidth25 " style="">
+                                <div id="row6" class="fieldtype-6-11 row row-fluid currentPage1 currentPageActive ">
+                                    <div class="uberfieldlat text-align-left">
+                                        <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                            <div id="id123-title29087098" class="class123-image-container"><img class=" img-align-center" src="~/Assets/images/Quiz/4243289.jpg" alt="" border="0" height="auto"></div>
+                                            <!-- End of Image 29087098 -->
+                                        </div>
+                                    </div><input id="errorflagrow6" value="" type="hidden">
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer7" class="fieldcontainer currentPage1 currentPageActive  fieldwidth35 " style="">
+                                <div id="row7" class="fieldtype-6-11 row row-fluid currentPage1 currentPageActive ">
+                                    <div class="uberfieldlat text-align-left">
+                                        <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                            <div id="id123-title29087099" class="class123-image-container"><img class=" img-align-center" src="~/Assets/images/Quiz/5132112.jpg" alt="" border="0" height="auto"></div>
+                                            <!-- End of Image 29087099 -->
+                                        </div>
+                                    </div><input id="errorflagrow7" value="" type="hidden">
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer8" class="fieldcontainer currentPage1 currentPageActive  fieldwidth35 " style="">
+                                <div id="row8" class="fieldtype-6-11 row row-fluid currentPage1 currentPageActive ">
+                                    <div class="uberfieldlat text-align-left">
+                                        <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                            <div id="id123-title29087100" class="class123-image-container"><img class=" img-align-center" src="~/Assets/images/Quiz/5132119.jpg" alt="" border="0" height="auto"></div>
+                                            <!-- End of Image 29087100 -->
+                                        </div>
+                                    </div><input id="errorflagrow8" value="" type="hidden">
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer9" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100 " style="">
+                                <div id="row9" class="fieldtype-6-12 row row-fluid currentPage1 currentPageActive ">
+                                    <div class="uberfieldlat text-align-left">
+                                        <div class="subitem col-lg-12 col-md-12 col-sm-12">
+                                            <div id="id123-control29087101" style="width:100%; margin-left:auto; margin-right:auto; text-align:right;">
+                                                <label id="id123-title29087101" style="display:none;"></label>
+                                                <div class="fb-like fb_iframe_widget" data-href="https://www.123contactform.com/form-2701923/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=157025404377057&amp;container_width=526&amp;href=https%3A%2F%2Fwww.123contactform.com%2Fform-2701923%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false"><span style="vertical-align: bottom; width: 62px; height: 20px;"><iframe name="f31a101acfd599" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 62px; height: 20px;" src="Online%20Quiz_files/like.htm" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div>&nbsp;<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1495234762173" name="I0_1495234762173" src="Online%20Quiz_files/fastbutton.htm" data-gapiattached="true" title="+1" width="100%" frameborder="0"></iframe></div>
+                                                <iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 61px; height: 20px;" title="Twitter Tweet Button" src="Online%20Quiz_files/tweet_button.htm" data-url="https://www.123contactform.com/form-2701923/" frameborder="0"></iframe>
+                                                <script src="Online%20Quiz_files/cbgapi.loaded_1" async=""></script>
+                                                <script src="Online%20Quiz_files/cbgapi.loaded_0" async=""></script>
+                                                <script id="facebook-jssdk" src="~/Assets/js/Quiz/all.js"></script><span style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;" class="IN-widget"><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1495234762971_0"><a id="li_ui_li_gen_1495234762971_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1495234762971_0-logo">in</span><span id="li_ui_li_gen_1495234762971_0-title"><span id="li_ui_li_gen_1495234762971_0-mark"></span><span id="li_ui_li_gen_1495234762971_0-title-text">Share</span></span></a></span></span><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1495234762995_1-container" class="IN-right IN-hidden"><span id="li_ui_li_gen_1495234762995_1" class="IN-right"><span id="li_ui_li_gen_1495234762995_1-inner" class="IN-right"><span id="li_ui_li_gen_1495234762995_1-content" class="IN-right">0</span></span></span></span></span></span>
+                                                <script type="in/share+init" data-counter="right" data-url="https://www.123contactform.com/form-2701923/">
+                                                </script>
+                                            </div>
+                                            <!-- End of Social Buttons 29087101 -->
+                                        </div>
+                                    </div><input id="errorflagrow9" value="" type="hidden">
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+                            <!-- fieldcontainer -->
+                            <div id="fieldcontainer10" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      " style="  ">
+                                <div id="row10" class="fieldtype-0-0 field-validation-7 row row-fluid currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup col-md-12 col-sm-12">
+                                        <label class="class123-label class123-fieldname  fontbold " id="id123-title29087102" for="id123-control29087102">Your Email</label>
+                                    </div>
+                                </div>
+                                <div id="rowsec10" class="fieldcontainer fieldtype-0-0 field-validation-7 rowdown currentPage1 currentPageActive">
+                                    <div class="row rowdownsmall align-left"><input id="errorflagrow10" value="" type="hidden"><div class="control-row"><div class="subitem col-lg-6 col-md-6 col-sm-6"><input id="id123-control29087102" name="control29087102" onclick=" InputActions(this,'row10');" onkeyup=" InputActions(this,'row10');  " onchange="InputRules(29087102); ;  " type="email"></div></div><div class=" control-row"><div class="subitem col-lg-12 instruction-container col-md-12 col-sm-12"><span class="instruction-code"><label class="class123-labelinfo" id="id123-titlemic29087102">We will use it to send you the quiz results</label></span></div></div></div>
+                                </div>
+                            </div>
+                            <!-- fieldcontainer ends -->
+
+                            <input id="id123-control000001" name="control000001" value="2" type="hidden">
+                            <div class="row"><div class="subitem col-lg-12 col-md-12 col-sm-12"><div id="checkout_form_con"></div></div></div>
+                            <!-- Buttons begin here -->
+                            <div id="fieldcontainer11" class="fieldcontainer thebuttons" style="">
+                                <div class="row currentPage1 currentPageActive">
+                                    <div class="subitem col-lg-12 rowup row-fluid align-center col-md-12 col-sm-12">
+                                        <input name="go_back_and_edit" id="go_back_and_edit" value="0" type="hidden"><button onclick="  this.style.display='none'; insertPleaseWaitDiv(this,'Please wait...');  " type="submit" class="no-default-image btn submit-btn formdefaultbut ripple-effect" style="background-color:#5EC830;" id="id123-button-send" value="Submit Your Online Quiz Answers">Submit Your Online Quiz Answers</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- fieldcontainer ends -->
+                        <!-- Buttons end here -->
+                        <input name="PHPSESSID" value="0v08lvna7eg5fc24c1qrmefkk4" type="hidden">
+                        <div class="spam-trap">
+                            <input name="email" type="text">
+                        </div>
+
+
+                        <input name="hiddenfields" id="hiddenfields" value="" type="hidden">
+                        <input name="hiddenfields_pages" id="hiddenfields_pages" value="" type="hidden">
+                        <input name="activepage" id="activepage" value="1" type="hidden">
+                        <input name="totalpages" id="totalpages" value="1" type="hidden">
+                        <input name="nextpagenr" id="nextpagenr" value="2" type="hidden">
+                        <input name="prevpagenr" id="prevpagenr" value="0" type="hidden">
+
+                    </form>
+
+                    <div class="clear"></div>
+                </div>
+            </div>	<footer class="form-footer" style="height:inherit;border-radius:0px;">
+                <div class="row class123_maintable maintable_centered">
+                    <div id="footer-content" class="col-lg-12 col-md-12">
+                        <small class="copyright">
+                            <a href="https://www.123contactform.com/" target="_blank"><img id="footer-logo" src="~/Assets/images/Quiz/logo.png"></a>
+                            Powered by <a class="footerLink13" title="123ContactForm" href="http://www.123contactform.com/">123ContactForm</a>
+                        </small>
+                        <small class="abuse pull-right-sm no-margin-top-sm">
+                            <a href="https://www.123contactform.com/sfnew.php?s=123contactform-52&amp;control119314=https://www.123contactform.com/form-2701923/&amp;control190=Report%20abuse" rel="nofollow" title="Looks like phishing? Report it!" target="_blank">Report abuse</a>
+                        </small>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    <!-- SRVDBG <b>Page generated in 0.301 seconds, using 5632 KB. (2017-05-19 22:59:22)</b> -->
+    <!-- SRVDBG www.123contactform.com ... x_y_0_159 ... www.123contactform.com -->
+    <div class="clear"></div><!-- optimized js code -->
+    <script>
+function checkStaticAssetLoaded() {
+	    		CFTracker && CFTracker.event('error_cdn_not_available');
+			var xmlhttp;
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function(){
+			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				var currentLocation = window.location.href;
+				window.location.href = currentLocation;
+			    }
+			}
+			xmlhttp.open("GET", '/ajax_disable_cdn.php', true);
+			xmlhttp.send();
+	    }
+
+	    window.tidAssetLoaded = setTimeout(checkStaticAssetLoaded, 6000);
+	    var img = new Image;
+	    img.src = 'https://cdn-main.123contactform.com/images3/cdn_checker.png?min=' + Math.floor( Date.now() / (1000 * 60) );
+	    img.onload = function() {
+	    	clearTimeout(window.tidAssetLoaded);
+	    }</script>
+    <script>
+window.CFTracker = false;
+                window.CFTracking = {
+										                    'context': {}										                };</script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/custom-components.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/jquery_002.js"></script>
+    <script>
+var digital_sign_cids = new Array();
+		$(window).load(function(){
+			setTimeout(function(){
+				for (var i=0; i < digital_sign_cids.length; i++) {
+					eval('window.sign'+digital_sign_cids[i]+'= new signature(\'id123-control-'+digital_sign_cids[i]+'\');');
+				}}, 500);
+		});</script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/tooltip-script.js"></script>
+    <script>
+$(document).ready(function() {
+                if (typeof(Wix) !== 'undefined') {
+                    $('[id^="goNextPage"]').click(function(){
+                        Wix.getBoundingRectAndOffsets(function(data){ // DANI - scroll to form header
+                            var y = data.offsets.y;
+                            var x = data.offsets.x;
+                            Wix.scrollTo(x,y);
+                        });
+                    });
+                    $('[id^="id123-pbrev"]').click(function(){
+                        Wix.getBoundingRectAndOffsets(function(data){ // DANI - scroll to form header
+                            var y = data.offsets.y;
+                            var x = data.offsets.x;
+                            Wix.scrollTo(x,y);
+                        });
+                    });
+
+                    Wix.addEventListener(Wix.Events.COMPONENT_DELETED, function(e) {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/ajax_call.php',
+                            data: { 'module': 'modules/wixNew/class.WixFunctions.php', 'class': 'wixFunctions', 'function': 'deleteWixInstance',  'iframeInstance': Wix.Utils.getInstanceId(), theToken: 'b226bbeefe1f731584edf077c', 'iframeInstanceCompid': Wix.Utils.getCompId() }
+                        })
+                    });
+
+                    Wix.addEventListener(Wix.Events.EDIT_MODE_CHANGE, function(e) {
+                      if(e.editMode == 'preview')
+                        $('.warning-wix-box-new-design').hide();
+                      else if(e.editMode == 'editor')
+                        $('.warning-wix-box-new-design').show();
+                  });
+                }
+            });</script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/languages-en.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/jquery.js"></script>
+    <script>
+(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=157025404377057";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+    <script>var form_direction=0</script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/form.js"></script>
+    <script>
+<!--
+var jsGetPlatform = '123';
+var tr_parents=[];
+var formrules=new Array(0);
+
+//--></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/encode_decode.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/interactive123cf.js"></script>
+    <script>
+var fid=2701923;
+	var curr='%26%2336%3B';
+	var preview_iframe=0;
+	var real_time=0;</script>
+    <script>
+<!--
+var selectedfield='';
+var multiPageCurent=1;
+var multiPageTotal=1;
+function InputActions(field,id) {
+	window.stopCalculate=true;
+	var textcolor='#4C4C4C';
+	var hltextcolor='#4C4C4C';
+	$('.class123-labelhidden:not(.hidden_instruction)').addClass('hidden_instruction');
+	if (!(($(field).prop('tagName') =='INPUT') && (($(field).prop('type')=="text") || ($(field).prop('type')=="password")) ))
+		if ($(field).prop('tagName') !='TEXTAREA')
+			remove_field_error(field);
+
+	$(field).parents('.fieldcontainer').last().find('.hidden_instruction').removeClass('hidden_instruction');
+	//var calendar = $('img[title="Close Calendar"]').trigger('click');
+
+	 lastactionobj=field;
+
+	if (id==selectedfield) { /* alert('do nothing'); */	}
+
+	// now the field rules
+
+	InputRules2('beginning','0','0');
+}
+
+//--></script>
+    <script>
+var  js_ctype_arr = new Array();
+var  js_cobject_arr = new Array();
+js_ctype_arr['cid29087093']=3;
+js_cobject_arr['cid29087093']=0;
+js_ctype_arr['cid29087094']=3;
+js_cobject_arr['cid29087094']=0;
+js_ctype_arr['cid29087095']=2;
+js_cobject_arr['cid29087095']=0;
+js_ctype_arr['cid29087096']=2;
+js_cobject_arr['cid29087096']=0;
+js_ctype_arr['cid29087097']=3;
+js_cobject_arr['cid29087097']=0;
+js_ctype_arr['cid29087098']=6;
+js_cobject_arr['cid29087098']=11;
+js_ctype_arr['cid29087099']=6;
+js_cobject_arr['cid29087099']=11;
+js_ctype_arr['cid29087100']=6;
+js_cobject_arr['cid29087100']=11;
+js_ctype_arr['cid29087101']=6;
+js_cobject_arr['cid29087101']=12;
+js_ctype_arr['cid29087102']=0;
+js_cobject_arr['cid29087102']=0;</script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/plusone.js" gapi_processed="true"></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/widgets.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Quiz/in.js"></script>
+    <script>
+var f_fixedamount='0';
+	var nr_fields=10;
+	this.nr_fields=nr_fields;
+	this.form_is_quiz='1';
+	var calc_fields=1;</script>
+    <script>InputRules('firsttime')</script>
+    <script>multiPageTotal=1;</script>
+    <script>window.date_piker_extra_height = false;</script>
+    <script>
+var servicedomain = 'www.123contactform.com';
+                            window.onload = function () {
+                                var my_button_width = 80;
+                                if (!document.querySelectorAll) {
+                                    d = document, s = d.createStyleSheet();
+                                    d.querySelectorAll = function (r, c, i, j, a) {
+                                        a = d.all, c = [], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
+                                        for (i = r.length; i--;) {
+                                            s.addRule(r[i], 'k:v');
+                                            for (j = a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
+                                            s.removeRule(0);
+                                        }
+                                        return c;
+                                    }
+                                }
+                                if (document.getElementById('mainform123') != null) {
+                                    if (document.querySelectorAll('.bicUploadButtonWrapper').length > 0) {
+                                        if (swfobject.getFlashPlayerVersion().release != 0) {
+                                            var uploadButtons = document.querySelectorAll('.bicUploadButtonWrapper');
+                                            var button_clone = uploadButtons[0].cloneNode(true);
+                                            var fieldcontainer = find_parent(uploadButtons[0], 'fieldcontainer');
+                                            var display_aux = fieldcontainer.style.display;
+                                            fieldcontainer.style.display = 'block';
+                                            var classRemoved = 0;
+                                            if (hasClass(fieldcontainer, 'currentPageInactive')) {
+                                                removeClass(fieldcontainer, 'currentPageInactive');
+                                                classRemoved = 1;
+                                            }
+                                            fieldcontainer.appendChild(button_clone);
+                                            my_button_width = button_clone.offsetWidth;
+                                            fieldcontainer.removeChild(button_clone);
+                                            if (classRemoved) {
+                                                addClass(fieldcontainer, 'currentPageInactive');
+                                                classRemoved = 0;
+                                            }
+                                            fieldcontainer.style.display = display_aux;
+                                        } else {
+                                            var uploadButtons = document.querySelectorAll('.bicUploadButtonWrapper');
+                                            for (var i = 0; i < uploadButtons.length; i++) {
+                                                uploadButtons[i].style.display = 'none';
+                                            }
+                                        }
+                                    }
+                                }
+								if (typeof interactive123cf_loaded != 'undefined') setFocusOnFirstTextField(2701923, 0);                                if (document.getElementById('thisisjsform') != null && !document.getElementById('new_embedding_system')) {
+
+                                    try {
+                                        if (parent.socket != null) {
+											var mymsg=Math.max(document.body.clientHeight,document.body.offsetHeight,document.body.scrollHeight) + "||0";
+                                            parent.socket.postMessage(mymsg);
+                                        }
+
+                                    } catch (e) {
+                                        console.error(e);
+                                    }
+                                }
+                                else {
+									                                }
+
+                                // BTV, OLD: if ((typeof(Wix) !== 'undefined') && (typeof(interactive123cf_loaded) !== 'undefined'))
+                                if ((typeof(interactive123cf_loaded) !== 'undefined') && (typeof(window.interactive123cf_loaded) != 'undefined')) {
+                                    // RefreshFrameHeight(0);
+                                    // var second_refresh = 1;
+                                    window.setTimeout("RefreshFrameHeight(0);", 150);
+									                                }
+                                if (typeof(Wix) !== 'undefined')
+                                    Wix.Activities.getUserSessionToken(function onSuccess(userToken) {
+                                        if (document.getElementById('wixUserSessionToken') != null) document.getElementById('wixUserSessionToken').value = userToken;
+                                    });
+                            };</script><!-- end of optimized js code -->
+    <iframe name="oauth2relay1960138376" id="oauth2relay1960138376" src="Online%20Quiz_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe>
+</body>
+</html>
+

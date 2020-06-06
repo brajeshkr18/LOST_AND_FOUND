@@ -1,0 +1,173 @@
+
+	.columntable tr td { padding:5px; }
+	.class123_maintable { text-align: left; }
+	/* CAPTCHA LABEL STYLE */
+	.class123-cpt-lbl-1 {font-weight: bold;}
+	.class123-cpt-lbl-2 {font-style: italic;}
+	.class123-cpt-lbl-3 {font-weight: bold;font-style: italic;}
+	.class123-cpt-align-ltr { float:right !important; }
+	/* NEW STYLES BEGIN	*/
+	.maintable_centered { margin-left:6%; margin-right:6%; }
+	.divonecolumn { width:49% !important; float:left; display:block; }
+	.divonecolumn.second-column { margin-left:2%; }
+	.dblock {display:block;}
+	.auto-width,.auto-width input { width:130px !important; }
+	.optionscontainer { width:100%; display:block; float: left; text-align:left; }
+	.optionscontainer.pagination {margin-top:6px;}
+	.font-bold {
+		font-weight : bold;	
+	}
+	div[id^="class123-bicTOSFrame"] { background-color:white; overflow-y: auto; } /* height not needed anymore */
+	
+	input:focus::-webkit-input-placeholder 
+	{
+		color: transparent;
+	}
+
+	.uberfieldlat {	
+	}
+	
+	.class123-image-container {
+		display:block;
+		max-width:100%;
+		
+	}
+	.class123-image-container.no-image-container {
+		border: 3px solid #c9c9c9;
+		vertical-align:middle;
+		text-align:center;
+		width:176px;
+		height:176px;
+		max-width:100%;
+		max-height:100%;
+		max-height:95%;
+		display:block;
+	}
+	
+	.class123-image-container img {
+		display:block;
+		max-width:100%;
+		vertical-align:middle;
+	}
+	.class123-image-container.no-image-container img {
+		display:inline-block;
+	}
+	
+	.img-align-left {
+		margin-left:none !important; margin-right:auto; 
+	}
+	
+	.img-align-right {
+		margin-left:auto !important; margin-right:none !important;
+	}
+	
+	.img-align-center {
+		margin-left:auto !important; margin-right:auto !important; 
+	}
+	
+	.no-image {
+	 	position:relative;
+	 	top:50%;
+		 margin-top:-20px;
+	}
+		
+	.thebuttons .align-right {
+		text-align:right;	
+	}
+
+	.thebuttons .align-center {
+		text-align:center;	
+	}
+	
+	.pull-dir {
+		float:right;	
+	}
+	
+	.form-rtl .pull-dir {
+		float:left !important;	
+	}
+	.form-rtl #language-label-container {
+	 	text-align:left !important;	
+	}
+	
+
+	.timer-container {float:right;margin-bottom:5px; }
+	.timer-container.timer-locked {margin-bottom:-27px;}
+
+
+	@@media only screen and (max-width:600px){
+		.timer-container.timer-locked {margin-bottom:0px !important;}
+	
+	}
+	@@media only screen and (max-width:640px){
+		.timer-container.timer-locked {margin-bottom:0px !important;}
+	}
+
+
+/* moved here from: function insertCssFieldRowsLeftRight() */
+
+.fieldcontainer { float: left; margin:0; padding:0 10px; width: 100%; }
+.fieldcontainer .fieldcontainer { padding:0 0px;  } /* OLD: margin-bottom:3px; also had display:none, which caused bug on form 376500 */
+.container-small .fieldcontainer { padding:0px 0px; }
+.container-small .row { margin-left:-4px; margin-right:-4px !important; }
+.container-small .col-sm-1, .container-small .col-sm-2, .container-small .col-sm-1_5, .container-small .col-sm-1_75, .container-small .col-sm-2_5, .container-small .col-sm-3, .container-small .col-sm-3_5, .container-small .col-sm-4, .container-small .col-sm-4_5, .container-small .col-sm-5, .container-small .col-sm-6, .container-small .col-sm-7, .container-small .col-sm-8, .container-small .col-sm-9, .container-small .col-sm-10, .container-small .col-sm-11, .container-small .col-sm-12 {
+	padding-left:4px !important;
+	padding-right:4px !important;
+}
+
+.container-small .focus .row, .container-small .validation-error .row {
+	margin-left:-4px !important;  
+}
+  
+.container-small .rowup.row-fluid {
+	margin:0px !important;
+}
+  
+.container-small .form-top-aligned .row-fluid {
+	padding-bottom:7px !important;
+}
+
+.container-small .tdmain {padding-left:10px !important;padding-right:10px !important; }
+	
+.fieldcontainer #printlink { margin-left: 0.5%; }
+.class123-separ-row { float:left; width:100%; background-color: transparent; }
+	
+/* moved here from: function insertCssFieldWidth() */
+.fieldwidth100 { float:left; width:100%; }
+.fieldwidth90  { float:left; width:90%; }
+.fieldwidth85  { float:left; width:85%; }
+.fieldwidth80  { float:left; width:80%; }
+.fieldwidth75  { float:left; width:75%; }
+.fieldwidth70  { float:left; width:70%; }
+.fieldwidth65  { float:left; width:65%; }
+.fieldwidth60  { float:left; width:60%; }
+.fieldwidth55  { float:left; width:55%; }
+.fieldwidth50  { float:left; width:50%; }
+.fieldwidth45  { float:left; width:45%; }
+.fieldwidth40  { float:left; width:40%; }
+.fieldwidth35  { float:left; width:35%; }
+.fieldwidth30  { float:left; width:30%; }
+.fieldwidth25  { float:left; width:25%; }
+.fieldwidth20  { float:left; width:20%; }
+.fieldwidth15  { float:left; width:15%; }
+.fieldwidth10  { float:left; width:10%; }
+
+label.heading-size-0 {
+	font-size: .75em;
+}
+
+label.heading-size-1 {
+	font-size: 1em;
+}
+
+label.heading-size-2 {
+	font-size: 1.25em;
+}
+
+label.heading-size-3 {
+	font-size: 1.5em;
+}
+
+.text-right.extra-padding-right {
+	padding-right: 20px!important;
+}

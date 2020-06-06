@@ -1,0 +1,126 @@
+﻿@model Shopping.Model.clsListFoundedPeople
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<header id="gtco-header" class="gtco-cover" role="banner"  style="background-image: url(projectwebsite.somee.com/LostAndFound/Assets/images/bg.png) ;height:400px"></header>
+<div class="gtco-section border-bottom">
+    <div class="table-responsive ">
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th > Action </th>
+                    <th >Uploaded By</th>
+                    <th>Uplaoded from</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Found/Lost</th>
+                    <th>Image</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+            <tbody>
+                @foreach (var users in Model.lstFoundedPeople)
+                {
+                    <tr>
+
+
+                        <td >
+                            <a title="Edit" href="@Url.Action("ManageUsers", "Admin", new { Id = users.Id })"> Edit</a>
+                            |
+
+                            @if (users.IsApproved)
+                            {
+                                <a title="Reject" href="javascript:;" class="btn-DeactivateUser">
+                            <input type="hidden" id="userid" value="@users.Id" name="userid" /> Reject</a>
+                            }
+                            else
+                            {
+                                <a title="Approve" href="javascript:;" class="btn-ActivateUser">
+                            <input type="hidden" id="userid" value="@users.Id" name="userid" /> Approve</a>
+                            }
+
+
+                        </td>
+
+                        <td >
+                            @(users.FirstName + " " + users.LastName)
+                        </td>
+
+                        <td>
+                            @(users.Address)
+                        </td>
+                        <td>
+                            @users.EmailId
+                        </td>
+                        <td>
+                            @users.Phone
+
+                        </td>
+                        <td>@users.LostOrFound</td>
+                        <td><figure><a target="_blank" href="@users.FindPeopleImage"><img src=" @users.FindPeopleImage" alt="" height="60"  /></a></figure></td>
+
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        $('.btn-DeactivateUser').click(function () {
+           
+            var idVal = $(this).find('input').val();
+            if (confirm("Are you sure you want to deactivate this User")) {
+                var url = "/Admin/ApproveRefuse";
+                $.post(url, { id: idVal, IsApproved: false }, function (data) {
+                    if (data.Status == "Success") {
+                        alert(" Deactivate successfully ")
+                        location.reload();
+                    }
+                    else if (Result.Status == "Failure") {
+
+                        alert("Oops! something went wrong while deactivate User. Please try again later.")
+                    }
+                });
+            }
+        })
+        $('.btn-ActivateUser').click(function () {
+            var idVal = $(this).find('input').val();
+
+            if (confirm("Are you sure you want to activate this User")) {
+                var url = "/Admin/ApproveRefuse";
+                $.post(url, { id: idVal, IsApproved: true }, function (data) {
+                    if (data.Status == "Success") {
+                        alert(" Activated successfully ")
+                        location.reload();
+                    }
+                    else if (Result.Status == "Failure") {
+
+                        alert("Oops! something went wrong while activating User. Please try again later.")
+                    }
+                });
+            }
+        })
+
+    })
+</script>

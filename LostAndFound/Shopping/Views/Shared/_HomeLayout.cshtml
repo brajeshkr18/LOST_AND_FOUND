@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+@*<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Shopping</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>*@
+
+@{
+    var UserRole = string.Empty;
+    var BgClass = string.Empty;
+    if (Request.IsAuthenticated && Session["UserInfo"] != null)
+    {
+        UserRole = ((Shopping.Model.clsSignin)Session["UserInfo"]).Role;
+        BgClass = "login-bg";
+    }
+}
+<head>
+    <title>Lost and Found</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Lost and Found " />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <link rel="stylesheet" href="~/Assets/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="~/Assets/css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="~/Assets/css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="~/Assets/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="~/Assets/css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="~/Assets/css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="~/Assets/css/style.css">
+
+	<!-- Modernizr JS -->
+	
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+
+    <div class="gtco-loader"></div>
+
+    <div id="page">
+
+        <div class="page-inner">
+            <nav class="gtco-nav" role="navigation">
+                <div class="gtco-container">
+
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12">
+                            <div id="gtco-logo"><a href="@Url.Action("Index","Home")">Lost & Found <em>.</em></a></div>
+                        </div>
+                        <div class="col-xs-8 text-right menu-1">
+                            <ul>
+
+                                <li class="has-dropdown">
+                                    <a href="#">Search</a>
+                                    <ul class="dropdown">
+                                        <li><a href="@Url.Action("LostPeople","Home")">Search Lost</a></li>
+                                        <li><a href="@Url.Action("FoundedPeople","Home")">Search Found</a></li>
+                                        <li><a href="#">Search Venue</a></li>
+
+                                    </ul>
+                                </li>
+                                <!-- <li><a href="tour.html">Tour</a></li> -->
+                                <li class="has-dropdown">
+                                    <a href="#">Report</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Report Lost</a></li>
+                                        <li><a href="@Url.Action("AddFoundedPeople","Home")">Report Found</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                                <li><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                                <li><a href="@Url.Action("Login","Account")">Login</a></li>
+                                <!-- <li class="btn-cta"><a href="#"><span>Get started</span></a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+            @RenderBody()
+            <hr />
+            <footer id="gtco-footer" role="contentinfo">
+                <div class="gtco-container">
+                    <div class="row row-p	b-md">
+                        <div class="col-md-4">
+                            <div class="gtco-widget">
+                                <h3>About <span class="footer-logo">Lost And Found<span>.<span></span></h3>
+                                <p>Found your near and dear one</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-md-push-1">
+                            <div class="gtco-widget">
+                                <h3>Links</h3>
+                                <ul class="gtco-footer-links">
+                                    <li><a href="#">Knowledge Base</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Press</a></li>
+                                    <li><a href="#">Terms of services</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="gtco-widget">
+                                <h3>Get In Touch</h3>
+                                <ul class="gtco-quick-contact">
+                                    <li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
+                                    <li><a href="#"><i class="icon-mail2"></i> info@FreeHTML5.co</a></li>
+                                    <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row copyright">
+                        <div class="col-md-12">
+                            <p class="pull-left">
+                                <small class="block">&copy; 2016 Lost & found. All Rights Reserved.</small>
+                                <small class="block">Designed by <a href="http://Hospitalmgmt.comee.com" target="_blank">Hospitalmgmt.somee.com</a>Hospitalmgmt: <a href="http://Hospitalmgmt.comee.com" target="_blank">Hospitalmgmt</a></small>
+                            </p>
+                            <p class="pull-right">
+                                <ul class="gtco-social-icons pull-right">
+                                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- //footer -->
+        </div>
+    </div>
+    <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+    <!-- jQuery -->
+    <script src="~/Assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/Assets/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.stellar.min.js "></script>
+    <!-- Waypoints -->
+    <script src="~/Assets/js/jquery.waypoints.min.js"></script>
+    <!-- Carousel -->
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <!-- countTo -->
+    <script src="~/Assets/js/jquery.countTo.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/js/magnific-popup-options.js"></script>
+    <!-- Main -->
+    <script src="~/Assets/js/main.js"></script>
+</body>
+</html>

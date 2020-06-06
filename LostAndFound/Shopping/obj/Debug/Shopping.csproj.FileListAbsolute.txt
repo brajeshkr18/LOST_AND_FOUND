@@ -1,0 +1,99 @@
+E:\LostAndFound\Shopping\bin\roslyn\csc.exe
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\LostAndFound\Shopping\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\LostAndFound\Shopping\bin\roslyn\System.Collections.Immutable.dll
+E:\LostAndFound\Shopping\bin\roslyn\System.Reflection.Metadata.dll
+E:\LostAndFound\Shopping\bin\roslyn\vbc.exe
+E:\LostAndFound\Shopping\bin\roslyn\VBCSCompiler.exe
+E:\LostAndFound\Shopping\bin\roslyn\VBCSCompiler.exe.config
+E:\LostAndFound\Shopping\bin\Shopping.dll.config
+E:\LostAndFound\Shopping\bin\Shopping.dll
+E:\LostAndFound\Shopping\bin\Shopping.pdb
+E:\LostAndFound\Shopping\bin\Antlr3.Runtime.dll
+E:\LostAndFound\Shopping\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\LostAndFound\Shopping\bin\Microsoft.Web.Infrastructure.dll
+E:\LostAndFound\Shopping\bin\Newtonsoft.Json.dll
+E:\LostAndFound\Shopping\bin\Shopping.Business.dll
+E:\LostAndFound\Shopping\bin\System.Web.Helpers.dll
+E:\LostAndFound\Shopping\bin\System.Web.Mvc.dll
+E:\LostAndFound\Shopping\bin\System.Web.Optimization.dll
+E:\LostAndFound\Shopping\bin\System.Web.Razor.dll
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.Deployment.dll
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.dll
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.Razor.dll
+E:\LostAndFound\Shopping\bin\WebGrease.dll
+E:\LostAndFound\Shopping\bin\BizBrolly.Util.dll
+E:\LostAndFound\Shopping\bin\Shopping.Data.dll
+E:\LostAndFound\Shopping\bin\EntityFramework.dll
+E:\LostAndFound\Shopping\bin\Shopping.Business.pdb
+E:\LostAndFound\Shopping\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\LostAndFound\Shopping\bin\System.Web.Helpers.xml
+E:\LostAndFound\Shopping\bin\System.Web.Mvc.xml
+E:\LostAndFound\Shopping\bin\System.Web.Optimization.xml
+E:\LostAndFound\Shopping\bin\System.Web.Razor.xml
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.xml
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.Deployment.xml
+E:\LostAndFound\Shopping\bin\System.Web.WebPages.Razor.xml
+E:\LostAndFound\Shopping\bin\Antlr3.Runtime.pdb
+E:\LostAndFound\Shopping\bin\Newtonsoft.Json.xml
+E:\LostAndFound\Shopping\bin\Shopping.Data.pdb
+E:\LostAndFound\Shopping\obj\Debug\Shopping.csprojResolveAssemblyReference.cache
+E:\LostAndFound\Shopping\obj\Debug\Shopping.dll
+E:\LostAndFound\Shopping\obj\Debug\Shopping.pdb
+E:\LostAndFound\Shopping\bin\Shopping.Model.dll
+E:\LostAndFound\Shopping\bin\Shopping.Model.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\csc.exe
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\System.Collections.Immutable.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\System.Reflection.Metadata.dll
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\vbc.exe
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\VBCSCompiler.exe
+D:\HTML Template\LostAndFound\Shopping\bin\roslyn\VBCSCompiler.exe.config
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.dll.config
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\Antlr3.Runtime.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Microsoft.Web.Infrastructure.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Newtonsoft.Json.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Business.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Model.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Helpers.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Mvc.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Optimization.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Razor.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.Deployment.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.dll
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.Razor.dll
+D:\HTML Template\LostAndFound\Shopping\bin\WebGrease.dll
+D:\HTML Template\LostAndFound\Shopping\bin\BizBrolly.Util.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Data.dll
+D:\HTML Template\LostAndFound\Shopping\bin\EntityFramework.dll
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Business.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Model.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Helpers.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Mvc.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Optimization.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.Razor.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.Deployment.xml
+D:\HTML Template\LostAndFound\Shopping\bin\System.Web.WebPages.Razor.xml
+D:\HTML Template\LostAndFound\Shopping\bin\Antlr3.Runtime.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\Newtonsoft.Json.xml
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Data.pdb
+D:\HTML Template\LostAndFound\Shopping\bin\Shopping.Data.dll.config
+D:\HTML Template\LostAndFound\Shopping\obj\Debug\Shopping.csprojAssemblyReference.cache
+D:\HTML Template\LostAndFound\Shopping\obj\Debug\Shopping.csproj.CoreCompileInputs.cache
+D:\HTML Template\LostAndFound\Shopping\obj\Debug\Shopping.csproj.CopyComplete
+D:\HTML Template\LostAndFound\Shopping\obj\Debug\Shopping.dll
+D:\HTML Template\LostAndFound\Shopping\obj\Debug\Shopping.pdb

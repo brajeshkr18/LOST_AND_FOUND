@@ -1,0 +1,352 @@
+﻿
+@{
+    ViewBag.Title = "AddLostPeople";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style>
+    .btnSignin {
+        background: #84C639 !important;
+        width: 100% !important;
+        border: 0 !important;
+        padding: 10px 15px !important;
+        color: #ffffff !important;
+        -webkit-transition: 0.3s ease !important;
+        transition: 0.3s ease !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+
+        .btnSignin:hover {
+            background: #FA1818 !important;
+        }
+
+    .close.topx {
+        margin-top: -15px;
+        margin-right: -5px;
+    }
+
+    .alert-danger {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #eed3d7;
+    }
+
+    .alert-Message {
+        border-width: 1px;
+        padding: 15px;
+        border: 1px solid transparent;
+        margin-bottom: 20px;
+    }
+
+    button.close {
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        -webkit-appearance: none;
+    }
+
+    .close {
+        float: right;
+        font-size: 21px;
+        font-weight: bold;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .2;
+        filter: alpha(opacity=20);
+    }
+
+    .display-hide {
+        display: none;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(http://projectwebsite.somee.com/LostAndFound/Assets/images/bg.png) ;height:400px"></header>
+
+<!-- //products-breadcrumb -->
+<!-- banner -->
+
+<div class="gtco-section border-bottom">
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6 animate-box">
+                    <h3>Do you Find SomeOne</h3>
+
+                    <div class="Error alert-Message alert-danger display-hide margin-bottom-0 margin-top-20">
+                        <button class="close topx" data-close="alert">x</button>
+                        <span id="spnErrorMessage" class="spnErrorMessage"></span>
+                    </div>
+                    <div class="Success alert-Message alert-success display-hide margin-top-20 margin-bottom-10">
+                        <button class="close" data-close="alert">x</button>
+                        <span id="spnSuccessMessage" class="spnSuccessMessage"></span>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+
+
+                            <label class="sr-only" for="name">First name </label>
+                            <input type="text" id="txtfirstname" class="form-control" placeholder="Your firstname">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="sr-only" for="subject">Last name</label>
+                            <input type="text" id="txtlastname" class="form-control" placeholder="Your last name">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="sr-only" for="email">Email</label>
+                            <input type="text" id="txtemailid" class="form-control" placeholder="Your email address">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="sr-only" for="email">Phone</label>
+                            <input type="text" id="txtphone" class="form-control" placeholder="Your phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="exampleInputFile">Picture</label>
+                                <input type="file" id="FileUpload">
+                            </div>
+                            <input type="hidden" id="upld-filepath" value="@attachment" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 display-hide msg-fileupload">
+                                <p id="msgUpload" class="help-block">
+                                    <span class="text-danger spnfailure"></span>
+                                    <span class="text-success spnsuccess"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mar-bot-10 dvloader display-hide">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <img src="~/Assets/images/loader.gif" />
+                            </div>
+                        </div>
+                        <div class="row padding-top-15">
+                            <div class="col-md-6">
+                                <button id="btn-upload" class="btn btn-primary display-hide">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group @Displayclass">
+                        <label for="exampleInputFile">Existing Picture</label>
+                        @if (!string.IsNullOrEmpty(attachment))
+                        {
+                            <a target="_blank" href="@attachment">
+                                <p class="text-info">view</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <p class="text-info">No picture</p>
+                        }
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="button" id="btn-submit" value="Save Detail" class="btn btn-primary">
+                    </div>
+
+                </div>
+                <div class="col-md-5 col-md-push-1 animate-box">
+
+                    <div class="gtco-contact-info">
+                        <h3>Contact Information</h3>
+                        <ul>
+                            <li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+                            <li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
+                            <li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+                            <li class="url"><a href="http://FreeHTML5.co">FreeHTML5.co</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script src="~/Assets/js/jquery-1.8.3.min.js"></script>*@
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var getlatitude;
+        var getlongitude;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (p) {
+
+                var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                var mapOptions = {
+                    center: LatLng,
+                    zoom: 4,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                getlatitude = p.coords.latitude;
+                getlongitude = p.coords.longitude;
+            });
+
+
+        } else {
+            alert('Geo Location feature is not supported in this browser.');
+        }
+        $('#FileUpload').change(function () {
+            var file = this.files[0];
+            name = file.name;
+            size = file.size;
+            type = file.type;
+            $('.msg-fileupload').removeClass('display').addClass('display-hide')
+            $('.msg-fileupload').find('.spnfailure').html('');
+            $('.msg-fileupload').find('.spnsuccess').html('');
+            $('#btn-upload').removeClass('display').addClass('display-hide')
+            if (file.name.length < 1) {
+
+            }
+            else if (file.size > 2500000) {
+                $('.msg-fileupload').removeClass('display-hide').addClass('display')
+                $('.msg-fileupload').find('.spnfailure').html('The file is too big');
+                $('#status-validfile').val('0');
+                return;
+            }
+            else if (file.type != 'image/png' && file.type != 'image/jpg' && file.type != 'image/gif' && file.type != 'image/jpeg') {
+                $('.msg-fileupload').removeClass('display-hide').addClass('display')
+                $('.msg-fileupload').find('.spnfailure').html('The file does not match png, jpg or gif');
+                $('#status-validfile').val('0');
+                return;
+            }
+            $('#btn-upload').removeClass('display-hide').addClass('display')
+            $('#status-validfile').val('1');
+        })
+        $("#btn-upload").click(function () {
+
+            $("#btn-upload").addClass('disabled')
+            $('.msg-fileupload').removeClass('display').addClass('display-hide')
+            $('.msg-fileupload').find('.spnsuccess').html('');
+            $('.msg-fileupload').find('.spnfailure').html('');
+            var validstatus = $('#status-validfile').val()
+            if (validstatus == "0") {
+                $('.msg-fileupload').removeClass('display-hide').addClass('display')
+                $('.msg-fileupload').find('.spnfailure').html('Please select images with png, jpg or gif extension only.');
+                $("#btn-upload").removeClass('disabled')
+                return;
+            }
+            $('.dvloader').removeClass('display-hide').addClass('display')
+            var formData = new FormData();
+            var totalFiles = document.getElementById("FileUpload").files.length;
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById("FileUpload").files[i];
+                formData.append("FileUpload", file);
+            }
+            $.ajax({
+                type: "POST",
+                url: '/Home/UploadFile',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.Status == "Success") {
+                        $('.msg-fileupload').removeClass('display-hide').addClass('display')
+                        $('.msg-fileupload').find('.spnsuccess').html(response.Message);
+                        $('#upld-filepath').val(response.path);
+                        $('.dvloader').removeClass('display').addClass('display-hide')
+
+                    } else if (response.Status == "Failure") {
+                        $('.msg-fileupload').removeClass('display-hide').addClass('display')
+                        $('.msg-fileupload').find('.spnfailure').html(response.Message);
+                        $('.dvloader').removeClass('display').addClass('display-hide')
+                    }
+                    $("#btn-upload").removeClass('disabled')
+                },
+                error: function (error) {
+                    $('.dvloader').removeClass('display').addClass('display-hide')
+                    $("#btn-upload").removeClass('disabled')
+                    alert("Oops! Something went wrong while uploading please try again later.");
+                }
+            });
+        });
+        $("#btn-submit").click(function () {
+          
+            var firstname = $('#txtfirstname').val();
+            var lastname = $('#txtlastname').val();
+            var emailid = $('#txtemailid').val();
+            var phone = $('#txtphone').val();
+
+            var FilePath = $('#upld-filepath').val();
+            //alert(getlatitude);
+            //alert(getlongitude);
+            //alert(FilePath);
+            if (firstname == "") {
+                haserror = true;
+                $('.Error').removeClass('display-hide').addClass('display')
+                $('.loader').removeClass('display').addClass('display-hide')
+                $('.spnErrorMessage').html('<strong>Error:</strong> Please enter your firstname.')
+                $(Button).prop("disabled", false);
+            }
+            else if (lastname == "") {
+                $('.Error').removeClass('display-hide').addClass('display')
+                $('.loader').removeClass('display').addClass('display-hide')
+                $('.spnErrorMessage').html('<strong>Error:</strong> Please enter lastname.')
+                $(Button).prop("disabled", false);
+            }
+            else if (emailid == "") {
+                $('.Error').removeClass('display-hide').addClass('display')
+                $('.loader').removeClass('display').addClass('display-hide')
+                $('.spnErrorMessage').html('<strong>Error:</strong> Please enter emailid.')
+                $(Button).prop("disabled", false);
+            }
+            else if (phone == "") {
+                $('.Error').removeClass('display-hide').addClass('display')
+                $('.loader').removeClass('display').addClass('display-hide')
+                $('.spnErrorMessage').html('<strong>Error:</strong> Please enter phone.')
+                $(Button).prop("disabled", false);
+            }
+            else {
+
+            var url = "/Home/SaveFoundPeolpeDetail";
+
+            //$.post(url, {
+            //    id: idVal, IsApproved: false, FirstName: FirstName, LastName: LastName, FindPeopleImage: FilePath,
+            //    Latitude: getlatitude, Longitude: getlongitude, EmailId: EmailId, Phone: Phone,
+            //    IsActive: true, UserId: " "
+            //},
+            $.post(url, {
+                id: "", IsApproved: false, FirstName: firstname, LastName: lastname, FindPeopleImage: FilePath,
+                Latitude: getlatitude, Longitude: getlongitude, EmailId: emailid, Phone: phone,
+                IsActive: true, UserId: " ", LostOrFound: "Lost"
+            }, function (data) {
+                if (data.Status == "Success") {
+                    alert(" Data saved  successfully ")
+                    $('.Error').removeClass('display-hide').addClass('display')
+                    $('.Error').removeClass('alert-danger').addClass('alert-success')
+                    $('.loader').removeClass('display').addClass('display-hide')
+                    $('.spnErrorMessage').html('<strong>Error:</strong> ' + Result.Message)
+                    //$('.msg-fileupload').find('.spnfailure').html('The file does not match png, jpg or gif');
+                    location.reload();
+                }
+                else if (data.Status == "Failure") {
+                    $('.Error').removeClass('display-hide').addClass('display')
+                    $('.loader').removeClass('display').addClass('display-hide')
+                    $('.spnErrorMessage').html('<strong>Error:</strong> ' + Result.Message)
+                    alert("Result.Message")
+                }
+            });
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+

@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "LostPeople";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(http://projectwebsite.somee.com/LostAndFound/Assets/images/img_4.jpg)"></header>
+<div class="gtco-section border-bottom">
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                <h2>Lates uploads</h2>
+                <p>Lost and Found provides users with the ability to find you dear one.</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var users in Model.lstFoundedPeople)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="@users.FindPeopleImage" class="fh5co-project-item image-popup">
+                        <figure>
+                            <div class="overlay"><i class="ti-plus"></i></div>
+                            <img src="@users.FindPeopleImage" alt="Image" class="img-responsive">
+                        </figure>
+                        <div class="fh5co-text">
+                            <h2><b>Uploaded by --</b>@users.FirstName</h2>
+                            <p>@users.FullAddress</p>
+                            <p><b>City--</b>@users.City<b>&nbsp;&nbsp;State--</b>@users.State</p>
+                            @*<p>@users.FullAddress</p>
+                                <p>@users.Address</p>*@
+                        </div>
+                    </a>
+                </div>
+            }
+
+            <div id="gtco-counter" class="gtco-section">
+                <div class="gtco-container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+                            <h2>Fun Facts</h2>
+                            <p>we love to hear from you .please us to help other to find the lost/found people.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="feature-center">
+                                <span class="icon">
+                                    <i class="ti-settings"></i>
+                                </span>
+                                <span class="counter js-counter" data-from="0" data-to="22070" data-speed="5000" data-refresh-interval="50">1</span>
+                                <span class="counter-label">Daily Users</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="feature-center">
+                                <span class="icon">
+                                    <i class="ti-face-smile"></i>
+                                </span>
+                                <span class="counter js-counter" data-from="0" data-to="97" data-speed="5000" data-refresh-interval="50">1</span>
+                                <span class="counter-label">Daily Posts</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="feature-center">
+                                <span class="icon">
+                                    <i class="ti-briefcase"></i>
+                                </span>
+                                <span class="counter js-counter" data-from="0" data-to="402" data-speed="5000" data-refresh-interval="50">1</span>
+                                <span class="counter-label">Total Founded people</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="feature-center">
+                                <span class="icon">
+                                    <i class="ti-time"></i>
+                                </span>
+                                <span class="counter js-counter" data-from="0" data-to="212023" data-speed="5000" data-refresh-interval="50">1</span>
+                                <span class="counter-label">Total Lost people</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="gtco-products">
+                <div class="gtco-container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                            <h2>More Uploads </h2>
+                            <p>Latest post by you</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="owl-carousel owl-carousel-carousel">
+                            @foreach (var users in Model.lstFoundedPeople)
+                            {
+                                <div class="item">
+                                    <a href=@users.FindPeopleImage><img src=@users.FindPeopleImage alt="lost & found"></a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
